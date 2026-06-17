@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用文档 - 校园跑路径模拟系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <nav class="gradient-bg text-white py-4 px-6 shadow-lg">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <h1 class="text-2xl font-bold">使用文档</h1>
+            </div>
+            <a href="index.html" class="bg-white/20 px-4 py-2 rounded-lg hover:bg-white/30 transition">
+                ← 返回主页面
+            </a>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto p-6">
+        <!-- 免责声明 -->
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg mb-8">
+            <div class="flex">
+                <svg class="w-5 h-5 text-yellow-400 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                    <p class="text-yellow-700 font-medium">重要声明</p>
+                    <p class="text-yellow-600 text-sm">本系统仅用于<strong>技术研究和学习目的</strong>。请遵守相关平台规定和法律法规，禁止用于作弊或其他违规行为。使用者需自行承担相关责任。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 快速开始 -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">🚀 快速开始</h2>
+            
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">方式一：直接运行（最简单）</h3>
+            <p class="text-gray-600 mb-4">直接用浏览器打开 <code class="bg-gray-100 px-2 py-1 rounded">index.html</code> 文件即可使用，无需任何后端服务。</p>
+            
+            <h3 class="text-lg font-semibold text-gray-700 mb-4 mt-6">方式二：本地服务器（推荐）</h3>
+            <div class="code-block mb-4">
+# 使用 Python 3
+python3 -m http.server 8080
+
+# 使用 Node.js
+npx serve .
+
+# 使用 PHP
+php -S localhost:8080
+            </div>
+            <p class="text-gray-600">然后访问 <code class="bg-gray-100 px-2 py-1 rounded">http://localhost:8080</code></p>
+            
+            <h3 class="text-lg font-semibold text-gray-700 mb-4 mt-6">方式三：在线部署</h3>
+            <ul class="space-y-2 text-gray-600">
+                <li>• <strong>GitHub Pages</strong>：Fork 仓库，在 Settings 中启用 Pages</li>
+                <li>• <strong>Vercel / Netlify</strong>：导入仓库，一键部署</li>
+                <li>• <strong>任何静态托管</strong>：支持纯静态文件托管服务</li>
+            </ul>
+        </section>
+
+        <!-- 使用教程 -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">📖 使用教程</h2>
+            
+            <div class="space-y-6">
+                <div class="flex">
+                    <div class="flex-shrink-0 w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">1</div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">添加点位</h3>
+                        <p class="text-gray-600">点击地图任意位置添加打卡点，或点击「加载预设点位」使用操场环形路径。至少需要添加 2 个点位。</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="flex-shrink-0 w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">2</div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">调整参数</h3>
+                        <p class="text-gray-600">设置目标距离（1-5km）、平均速度（推荐2.5-3.5m/s）、GPS漂移（推荐3-8米）、速度波动（推荐15-25%）。</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="flex-shrink-0 w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">3</div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">预览路径</h3>
+                        <p class="text-gray-600">点击「生成路径预览」查看规划路线，地图上会显示蓝色预测轨迹。</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="flex-shrink-0 w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">4</div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">开始模拟</h3>
+                        <p class="text-gray-600">点击「开始模拟」启动实时模拟，可随时暂停/继续。观察距离、速度、时长实时变化。</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="flex-shrink-0 w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">5</div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">导出数据</h3>
+                        <p class="text-gray-600">模拟完成后可导出 GeoJSON、GPX、JSON 三种格式的轨迹文件。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心算法 -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">🧠 核心算法说明</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold text-blue-600 mb-3">路径平滑算法</h3>
+                    <p class="text-gray-600 text-sm mb-3">使用二阶贝塞尔曲线对原始路径进行平滑处理</p>
+                    <div class="code-block text-xs">
+lat = (1-t)² * p0.lat + 
+      2*(1-t)*t * midLat + 
+      t² * p1.lat
+                    </div>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold text-green-600 mb-3">S型速度曲线</h3>
+                    <ul class="text-gray-600 text-sm space-y-1">
+                        <li>• 0-10%：起步加速（20%→100%）</li>
+                        <li>• 10-90%：匀速（带±波动）</li>
+                        <li>• 90-100%：结束减速</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-purple-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold text-purple-600 mb-3">GPS漂移模拟</h3>
+                    <p class="text-gray-600 text-sm mb-3">基于高斯噪声模型，考虑纬度修正</p>
+                    <div class="code-block text-xs">
+latDrift = (meters / 111000) * random
+lngDrift = meters / (111000 * cos(lat))
+                    </div>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold text-orange-600 mb-3">数据自洽校验</h3>
+                    <ul class="text-gray-600 text-sm space-y-1">
+                        <li>• 时间戳间隔一致性</li>
+                        <li>• 距离 = 速度 × 时间</li>
+                        <li>• 加速度合理范围</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub 托管指南 -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">📦 GitHub 托管指南</h2>
+            
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">推荐仓库结构</h3>
+            <div class="code-block mb-6">
+campus-run-simulator/
+├── index.html          # 主应用页面
+├── docs.html           # 使用文档
+├── README.md           # 项目说明
+├── LICENSE             # MIT 开源协议
+└── .gitignore
+            </div>
+            
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">初始化 Git 仓库</h3>
+            <div class="code-block mb-6">
+# 创建新仓库
+git init
+git add .
+git commit -m "Initial commit: 校园跑路径模拟系统 v1.0"
+
+# 添加远程仓库
+git remote add origin https://github.com/你的用户名/campus-run-simulator.git
+git push -u origin main
+            </div>
+            
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">启用 GitHub Pages</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                <li>进入仓库 Settings 页面</li>
+                <li>找到 Pages 选项</li>
+                <li>Source 选择 main 分支</li>
+                <li>点击 Save，等待部署完成</li>
+                <li>访问 https://你的用户名.github.io/campus-run-simulator/</li>
+            </ol>
+        </section>
+
+        <!-- 技术调研 -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">🔬 创高体育技术调研</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">📍 定位机制</h3>
+                    <ul class="text-gray-600 space-y-1">
+                        <li>• 主定位：GPS/GLONASS 卫星定位</li>
+                        <li>• 辅助定位：WiFi、基站、蓝牙信标</li>
+                        <li>• 定位精度：户外约 5-15 米</li>
+                        <li>• 采样频率：约每 5 秒记录一次</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">🔐 防作弊校验</h3>
+                    <ul class="text-gray-600 space-y-1">
+                        <li>• <strong>速度校验</strong>：配速需在 6-10 分钟/公里</li>
+                        <li>• <strong>点位校验</strong>：必须经过所有打卡点（≤50米）</li>
+                        <li>• <strong>轨迹校验</strong>：路径连续性、无瞬移</li>
+                        <li>• <strong>传感器校验</strong>：加速度计、陀螺仪数据交叉验证</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">✅ 有效条件</h3>
+                    <ul class="text-gray-600 space-y-1">
+                        <li>• 完成规定距离（通常 1-2 公里）</li>
+                        <li>• 配速在合理范围内</li>
+                        <li>• 经过所有强制打卡点位</li>
+                        <li>• 运动轨迹无明显异常</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 导出格式说明 -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">📤 导出格式说明</h2>
+            
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h3 class="font-semibold text-green-600">GeoJSON 格式</h3>
+                    <p class="text-gray-600 text-sm">标准地理数据格式，可导入 QGIS、ArcGIS 等 GIS 软件进行数据分析。</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h3 class="font-semibold text-blue-600">GPX 格式</h3>
+                    <p class="text-gray-600 text-sm">GPS 交换格式，可导入 Garmin、咕咚、Keep 等运动设备和跑步 APP。</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h3 class="font-semibold text-purple-600">JSON 格式</h3>
+                    <p class="text-gray-600 text-sm">原始数据格式，包含完整的时间戳、坐标、速度、距离信息，便于二次开发。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="text-center text-gray-500 text-sm py-8">
+            <p>🏃 校园跑路径模拟系统 | 仅供技术研究和学习使用</p>
+            <p class="mt-2">请遵守学校规定和相关法律法规，诚信体育锻炼</p>
+        </footer>
+    </div>
+</body>
+</html>
