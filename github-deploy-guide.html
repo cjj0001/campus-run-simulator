@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub 部署详细教程 - 校园跑路径模拟系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .step-card {
+            border-left: 4px solid #667eea;
+        }
+        .screenshot-box {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+        }
+        .success-box {
+            background: #dcfce7;
+            border-left: 4px solid #22c55e;
+        }
+        .tip-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <nav class="gradient-bg text-white py-4 px-6 shadow-lg sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <h1 class="text-xl font-bold">GitHub 部署详细教程</h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="bg-white/20 px-3 py-1.5 rounded-lg hover:bg-white/30 transition text-sm">
+                    ← 主页面
+                </a>
+                <a href="docs.html" class="bg-white/20 px-3 py-1.5 rounded-lg hover:bg-white/30 transition text-sm">
+                    📖 使用文档
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto p-6">
+        <!-- 文档头部 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">📚 GitHub Pages 部署完整教程</h1>
+            <p class="text-gray-600 text-lg mb-6">从零开始，手把手教你将校园跑路径模拟系统部署到 GitHub Pages</p>
+            
+            <div class="bg-blue-50 rounded-xl p-6">
+                <h3 class="font-semibold text-blue-800 mb-3">🎯 教程目标</h3>
+                <ul class="text-blue-700 space-y-2">
+                    <li>✅ 注册 GitHub 账号（新手友好）</li>
+                    <li>✅ 创建代码仓库并上传文件</li>
+                    <li>✅ 启用 GitHub Pages 静态网站托管</li>
+                    <li>✅ 获得可公开访问的网站链接</li>
+                    <li>✅ 常见问题排查与解决</li>
+                </ul>
+            </div>
+
+            <div class="mt-6 p-4 warning-box rounded-r-lg">
+                <p class="font-semibold text-amber-800">⏱️ 预计耗时：10-15 分钟</p>
+                <p class="text-amber-700 text-sm mt-1">无需任何编程基础，按照步骤操作即可完成</p>
+            </div>
+        </div>
+
+        <!-- 目录 -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">📋 教程目录</h2>
+            <div class="grid md:grid-cols-2 gap-3">
+                <a href="#step1" class="block p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
+                    <span class="text-blue-600 font-semibold">01</span> 注册 GitHub 账号
+                </a>
+                <a href="#step2" class="block p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
+                    <span class="text-blue-600 font-semibold">02</span> 创建新代码仓库
+                </a>
+                <a href="#step3" class="block p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
+                    <span class="text-blue-600 font-semibold">03</span> 网页端上传文件
+                </a>
+                <a href="#step4" class="block p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
+                    <span class="text-blue-600 font-semibold">04</span> 启用 GitHub Pages
+                </a>
+                <a href="#step5" class="block p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
+                    <span class="text-blue-600 font-semibold">05</span> 访问与测试网站
+                </a>
+                <a href="#step6" class="block p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
+                    <span class="text-blue-600 font-semibold">06</span> 常见问题排查
+                </a>
+            </div>
+        </div>
+
+        <!-- Step 1: 注册账号 -->
+        <section id="step1" class="bg-white rounded-2xl shadow-lg p-8 mb-8 step-card">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                <span class="bg-blue-500 text-white w-8 h-8 inline-flex items-center justify-center rounded-full mr-2 text-lg">1</span>
+                注册 GitHub 账号
+            </h2>
+
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">1.1 打开 GitHub 官网</h3>
+                    <p class="text-gray-600 mb-4">在浏览器地址栏输入：<code class="bg-gray-100 px-2 py-1 rounded">https://github.com</code></p>
+                    
+                    <div class="screenshot-box mb-4">
+                        <p class="text-gray-500 mb-2">📸 截图参考：GitHub 首页</p>
+                        <p class="text-sm text-gray-400">页面右上角有「Sign up」和「Sign in」按钮</p>
+                        <p class="text-sm text-gray-400">页面中央有大大的输入框用于注册</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">1.2 点击注册按钮</h3>
+                    <p class="text-gray-600 mb-3">点击页面右上角的 <strong>Sign up</strong> 按钮（白色文字，黑色背景按钮）</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">1.3 填写注册信息</h3>
+                    <div class="bg-gray-50 rounded-xl p-5 space-y-4">
+                        <div>
+                            <p class="font-medium text-gray-700">① 输入邮箱地址</p>
+                            <p class="text-sm text-gray-500">建议使用常用邮箱（QQ邮箱、163邮箱、Gmail均可）</p>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-700">② 设置密码</p>
+                            <p class="text-sm text-gray-500">密码长度至少 8 位，包含字母和数字</p>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-700">③ 设置用户名</p>
+                            <p class="text-sm text-gray-500">这个用户名会出现在你的网站链接中，建议简洁好记</p>
+                            <p class="text-sm text-blue-600">例如：xiaoming2024、runner-boy、sports-user</p>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-700">④ 邮箱验证</p>
+                            <p class="text-sm text-gray-500">接收验证码邮件，输入页面上显示的验证码</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-box p-4 rounded-r-lg">
+                    <p class="font-semibold text-blue-800">💡 小提示</p>
+                    <p class="text-blue-700 text-sm">用户名一旦确定，你的网站地址就是：<code>https://你的用户名.github.io/仓库名/</code>，请慎重选择！</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">1.4 完成注册</h3>
+                    <p class="text-gray-600">按照页面提示完成人机验证，选择免费的 Free 计划即可。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: 创建仓库 -->
+        <section id="step2" class="bg-white rounded-2xl shadow-lg p-8 mb-8 step-card">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                <span class="bg-green-500 text-white w-8 h-8 inline-flex items-center justify-center rounded-full mr-2 text-lg">2</span>
+                创建新代码仓库
+            </h2>
+
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">2.1 登录后进入主页</h3>
+                    <p class="text-gray-600 mb-4">登录成功后，你会看到 GitHub 个人仪表盘页面</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">2.2 点击创建仓库</h3>
+                    <p class="text-gray-600 mb-3">方式一：点击左侧边栏的 <strong>New</strong> 绿色按钮</p>
+                    <p class="text-gray-600 mb-4">方式二：点击页面右上角的 <strong>+</strong> 号，选择「New repository」</p>
+                    
+                    <div class="screenshot-box mb-4">
+                        <p class="text-gray-500 mb-2">📸 截图参考：创建仓库按钮位置</p>
+                        <p class="text-sm text-gray-400">左侧边栏顶部：绿色按钮写着 "New"</p>
+                        <p class="text-sm text-gray-400">右上角：+ 号图标，点击展开菜单</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">2.3 填写仓库信息（重点！）</h3>
+                    
+                    <div class="border-2 border-gray-200 rounded-xl overflow-hidden">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-3 text-left">设置项</th>
+                                    <th class="px-4 py-3 text-left">填写内容</th>
+                                    <th class="px-4 py-3 text-left">说明</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">Repository name</td>
+                                    <td class="px-4 py-3 text-blue-600 font-mono">campus-run-simulator</td>
+                                    <td class="px-4 py-3 text-gray-500">仓库名称，建议用这个</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">Description</td>
+                                    <td class="px-4 py-3">校园跑路径模拟系统</td>
+                                    <td class="px-4 py-3 text-gray-500">可选，简单描述一下</td>
+                                </tr>
+                                <tr class="bg-green-50">
+                                    <td class="px-4 py-3 font-medium">Public / Private</td>
+                                    <td class="px-4 py-3 text-green-600 font-semibold">✅ Public</td>
+                                    <td class="px-4 py-3 text-gray-500"><strong>必须选公开！</strong>私有仓库无法用 Pages</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">Add a README file</td>
+                                    <td class="px-4 py-3">⬜ 不勾选</td>
+                                    <td class="px-4 py-3 text-gray-500">我们自己上传文件</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">Add .gitignore</td>
+                                    <td class="px-4 py-3">⬜ 不勾选</td>
+                                    <td class="px-4 py-3 text-gray-500">不需要</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">Choose a license</td>
+                                    <td class="px-4 py-3">⬜ 不勾选</td>
+                                    <td class="px-4 py-3 text-gray-500">可选 MIT 协议</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="warning-box p-4 rounded-r-lg">
+                    <p class="font-semibold text-amber-800">⚠️ 重要提醒</p>
+                    <p class="text-amber-700 text-sm">一定要选择 <strong>Public（公开）</strong>！私有仓库只有付费用户才能使用 GitHub Pages 功能。</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">2.4 创建仓库</h3>
+                    <p class="text-gray-600 mb-3">确认所有设置后，点击页面底部的绿色按钮 <strong>Create repository</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: 上传文件 -->
+        <section id="step3" class="bg-white rounded-2xl shadow-lg p-8 mb-8 step-card">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                <span class="bg-purple-500 text-white w-8 h-8 inline-flex items-center justify-center rounded-full mr-2 text-lg">3</span>
+                网页端上传文件
+            </h2>
+
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">3.1 进入上传界面</h3>
+                    <p class="text-gray-600 mb-4">创建仓库成功后，你会看到一个几乎空白的仓库页面</p>
+                    
+                    <p class="text-gray-600 mb-3">找到并点击：<strong>uploading an existing file</strong> 链接</p>
+                    
+                    <div class="screenshot-box mb-4">
+                        <p class="text-gray-500 mb-2">📸 截图参考：上传链接位置</p>
+                        <p class="text-sm text-gray-400">在 Quick setup 标题下方，蓝色文字链接</p>
+                        <p class="text-sm text-gray-400">文字内容："...or upload an existing file"</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">3.2 准备需要上传的文件</h3>
+                    <div class="bg-gray-50 rounded-xl p-5">
+                        <p class="font-medium text-gray-700 mb-3">请确保你已下载以下文件到你的电脑：</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>📄 <code class="bg-white px-2 py-0.5 rounded">index.html</code> - 主应用页面（必须）</li>
+                            <li>📄 <code class="bg-white px-2 py-0.5 rounded">docs.html</code> - 使用文档（推荐）</li>
+                            <li>📄 <code class="bg-white px-2 py-0.5 rounded">github-deploy-guide.html</code> - 部署教程（可选）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">3.3 拖拽上传文件</h3>
+                    <ol class="list-decimal list-inside space-y-3 text-gray-600 ml-4">
+                        <li>在文件资源管理器中选中上面的文件</li>
+                        <li>按住鼠标左键，拖拽到浏览器中的上传区域</li>
+                        <li>松开鼠标，文件会自动开始上传</li>
+                    </ol>
+                    
+                    <div class="screenshot-box my-4">
+                        <p class="text-gray-500 mb-2">📸 截图参考：上传区域</p>
+                        <p class="text-sm text-gray-400">页面中央有虚线框，写着 "Drag files here to add them to your repository"</p>
+                        <p class="text-sm text-gray-400">也可以点击 "choose your files" 选择文件</p>
+                    </div>
+
+                    <div class="tip-box p-4 rounded-r-lg mt-4">
+                        <p class="font-semibold text-blue-800">💡 备选方案</p>
+                        <p class="text-blue-700 text-sm">如果拖拽不成功，可以点击「choose your files」按钮，在弹出的文件选择窗口中选中文件。</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">3.4 确认并提交文件</h3>
+                    <p class="text-gray-600 mb-3">文件上传完成后：</p>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-600 ml-4 mb-4">
+                        <li>滚动到页面底部</li>
+                        <li>在 "Commit changes" 区域保持默认即可</li>
+                        <li>点击绿色按钮 <strong>Commit changes</strong></li>
+                    </ol>
+                </div>
+
+                <div class="success-box p-4 rounded-r-lg">
+                    <p class="font-semibold text-green-800">✅ 验证上传成功</p>
+                    <p class="text-green-700 text-sm">提交后页面会自动刷新，你应该能看到文件列表显示了上传的 index.html 等文件。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 4: 启用 Pages -->
+        <section id="step4" class="bg-white rounded-2xl shadow-lg p-8 mb-8 step-card">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                <span class="bg-orange-500 text-white w-8 h-8 inline-flex items-center justify-center rounded-full mr-2 text-lg">4</span>
+                启用 GitHub Pages
+            </h2>
+
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">4.1 进入仓库设置</h3>
+                    <p class="text-gray-600 mb-3">在仓库页面的顶部导航栏，找到并点击 <strong>Settings</strong> 选项卡（最右侧）</p>
+                    
+                    <div class="screenshot-box mb-4">
+                        <p class="text-gray-500 mb-2">📸 截图参考：导航栏位置</p>
+                        <p class="text-sm text-gray-400">导航栏选项顺序：Code → Issues → Pull requests → Actions → Projects → Security → Insights → <strong>Settings</strong></p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">4.2 找到 Pages 设置</h3>
+                    <p class="text-gray-600 mb-3">在 Settings 页面的左侧菜单中，向下滚动找到：</p>
+                    <p class="text-lg font-medium text-blue-600 mb-4">→ Pages （在 Code and automation 分类下）</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">4.3 配置 Pages 源（关键步骤！）</h3>
+                    
+                    <div class="border-2 border-gray-200 rounded-xl p-5 space-y-5">
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-2">① Source（源）设置</p>
+                            <p class="text-gray-600">下拉框选择：<strong class="text-green-600">Deploy from a branch</strong></p>
+                        </div>
+                        
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-2">② Branch（分支）设置</p>
+                            <div class="bg-gray-50 rounded-lg p-4 space-y-2">
+                                <p>第一个下拉框：<strong class="text-blue-600">main</strong> 或 <strong class="text-blue-600">master</strong></p>
+                                <p class="text-sm text-gray-500">（一般是 main，旧仓库可能是 master）</p>
+                                <p>第二个下拉框：<strong class="text-blue-600">/ (root)</strong></p>
+                                <p class="text-sm text-gray-500">表示从根目录读取文件</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="font-semibold text-gray-700 mb-2">③ 保存设置</p>
+                            <p class="text-gray-600">点击 <strong>Save</strong> 按钮</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box p-4 rounded-r-lg">
+                    <p class="font-semibold text-amber-800">⚠️ 注意</p>
+                    <p class="text-amber-700 text-sm">点击 Save 后页面会刷新。此时顶部会显示黄色提示："Your site is ready to be published"</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">4.4 等待部署完成</h3>
+                    <p class="text-gray-600 mb-3">GitHub 需要 1-3 分钟来部署你的网站：</p>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-600 ml-4">
+                        <li>刷新 Pages 设置页面</li>
+                        <li>顶部提示变成绿色："Your site is live at https://..."</li>
+                        <li>表示部署成功！</li>
+                    </ol>
+                </div>
+
+                <div class="success-box p-4 rounded-r-lg">
+                    <p class="font-semibold text-green-800">✅ 部署成功标志</p>
+                    <p class="text-green-700 text-sm">绿色提示条 + 可点击的网站链接 = 部署成功！</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 5: 访问测试 -->
+        <section id="step5" class="bg-white rounded-2xl shadow-lg p-8 mb-8 step-card">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                <span class="bg-cyan-500 text-white w-8 h-8 inline-flex items-center justify-center rounded-full mr-2 text-lg">5</span>
+                访问与测试网站
+            </h2>
+
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">5.1 获取你的网站链接</h3>
+                    <p class="text-gray-600 mb-4">你的网站地址格式为：</p>
+                    <div class="bg-gray-900 text-green-400 p-4 rounded-xl font-mono text-center">
+                        https://<span class="text-yellow-400">你的用户名</span>.github.io/<span class="text-blue-400">campus-run-simulator</span>/
+                    </div>
+                    
+                    <p class="text-gray-600 mt-4">例如：</p>
+                    <ul class="text-gray-500 space-y-1 ml-4">
+                        <li>• 用户名为 <code>xiaoming</code> → <code>https://xiaoming.github.io/campus-run-simulator/</code></li>
+                        <li>• 用户名为 <code>runner2024</code> → <code>https://runner2024.github.io/campus-run-simulator/</code></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">5.2 功能测试清单</h3>
+                    
+                    <div class="bg-gray-50 rounded-xl p-5">
+                        <div class="grid gap-3">
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                <span>✅ 页面正常加载，地图显示正常</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                <span>✅ 点击地图可以添加点位</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                <span>✅ "加载预设点位" 按钮正常工作</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                <span>✅ 滑块可以调整参数</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                <span>✅ "生成路径预览" 正常显示蓝色路径</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                <span>✅ "开始模拟" 后跑步者标记移动</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="w-5 h-5 text-blue-600">
+                                <span>✅ 距离、速度、时间显示正常更新</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">5.3 分享你的网站</h3>
+                    <p class="text-gray-600">部署成功后，这个链接可以分享给任何人，在任何设备（手机、电脑）上都可以访问！</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 6: 问题排查 -->
+        <section id="step6" class="bg-white rounded-2xl shadow-lg p-8 mb-8 step-card">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                <span class="bg-red-500 text-white w-8 h-8 inline-flex items-center justify-center rounded-full mr-2 text-lg">6</span>
+                常见问题排查
+            </h2>
+
+            <div class="space-y-6">
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <div class="bg-red-50 px-5 py-3 border-b border-gray-200">
+                        <h3 class="font-semibold text-red-700">❌ 问题1：访问网站显示 404 Not Found</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="font-medium text-gray-700 mb-2">可能原因及解决方案：</p>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>部署还没完成</strong> - 等待 3-5 分钟，刷新页面再试</li>
+                            <li><strong>地址输入错误</strong> - 检查用户名和仓库名拼写是否正确</li>
+                            <li><strong>文件名错误</strong> - 确保主文件名叫 <code>index.html</code>（全小写）</li>
+                            <li><strong>分支设置错误</strong> - 回到 Pages 设置，确认选择了 main + /root</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <div class="bg-red-50 px-5 py-3 border-b border-gray-200">
+                        <h3 class="font-semibold text-red-700">❌ 问题2：更新文件后网站不更新</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="font-medium text-gray-700 mb-2">解决方案：</p>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>强制刷新浏览器</strong> - 按 Ctrl + F5（Windows）或 Cmd + Shift + R（Mac）</li>
+                            <li><strong>清除浏览器缓存</strong> - 或使用无痕模式访问</li>
+                            <li><strong>等待 GitHub 更新</strong> - 一般需要 1-2 分钟</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <div class="bg-red-50 px-5 py-3 border-b border-gray-200">
+                        <h3 class="font-semibold text-red-700">❌ 问题3：地图不显示 / 显示空白</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="font-medium text-gray-700 mb-2">解决方案：</p>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>检查网络连接</strong> - 地图需要加载在线资源</li>
+                            <li><strong>等待页面完全加载</strong> - 地图资源较大，加载可能需要几秒</li>
+                            <li><strong>使用 Chrome / Edge 浏览器</strong> - 兼容性最好</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <div class="bg-red-50 px-5 py-3 border-b border-gray-200">
+                        <h3 class="font-semibold text-red-700">❌ 问题4：找不到 Pages 设置选项</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="font-medium text-gray-700 mb-2">解决方案：</p>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>确认仓库是 Public</strong> - 私有仓库免费用户不能用 Pages</li>
+                            <li><strong>在 Settings 页面向下滚动</strong> - Pages 选项在下方</li>
+                            <li><strong>确认你是仓库所有者</strong> - 只有所有者能修改 Pages 设置</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <div class="bg-red-50 px-5 py-3 border-b border-gray-200">
+                        <h3 class="font-semibold text-red-700">❌ 问题5：上传文件后不显示</h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="font-medium text-gray-700 mb-2">解决方案：</p>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>确认点击了 Commit changes</strong> - 必须提交才会真正保存</li>
+                            <li><strong>刷新 Code 页面</strong> - 按 F5 刷新</li>
+                            <li><strong>检查文件名</strong> - 不要使用中文文件名或特殊字符</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 tip-box p-4 rounded-r-lg">
+                <p class="font-semibold text-blue-800">💡 终极解决方法</p>
+                <p class="text-blue-700 text-sm">如果以上方法都无效，删除仓库，按照教程重新来一遍！大多数问题都是某一步设置错误造成的。</p>
+            </div>
+        </section>
+
+        <!-- 总结 -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">🎊 部署完成！</h2>
+            
+            <div class="success-box p-6 rounded-r-lg mb-6">
+                <h3 class="font-bold text-green-800 text-lg mb-3">恭喜你！现在你拥有了：</h3>
+                <ul class="text-green-700 space-y-2">
+                    <li>✅ 一个可公开访问的校园跑路径模拟系统</li>
+                    <li>✅ 属于你自己的 GitHub 代码仓库</li>
+                    <li>✅ 免费的静态网站托管服务</li>
+                    <li>✅ 可以随时更新和修改的网站</li>
+                </ul>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-xl">
+                <h3 class="font-bold text-lg mb-3">📚 下一步学习建议</h3>
+                <p class="opacity-90">如果你对编程感兴趣，可以继续学习：</p>
+                <div class="grid md:grid-cols-3 gap-4 mt-4">
+                    <div class="bg-white/20 rounded-lg p-3">
+                        <p class="font-semibold">HTML / CSS</p>
+                        <p class="text-sm opacity-80">修改网站样式和布局</p>
+                    </div>
+                    <div class="bg-white/20 rounded-lg p-3">
+                        <p class="font-semibold">JavaScript</p>
+                        <p class="text-sm opacity-80">添加更多功能和交互</p>
+                    </div>
+                    <div class="bg-white/20 rounded-lg p-3">
+                        <p class="font-semibold">Git 命令</p>
+                        <p class="text-sm opacity-80">更高效的代码管理</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="text-center text-gray-500 text-sm py-8">
+            <p>🏃 校园跑路径模拟系统 - GitHub 部署教程</p>
+            <p class="mt-2">本教程适用于所有静态网站的 GitHub Pages 部署</p>
+        </footer>
+    </div>
+</body>
+</html>
